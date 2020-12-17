@@ -32,7 +32,7 @@
 
     &PRINT
       &PDOS SILENT
-        COMPONENTS F
+        COMPONENTS T
         NLUMO  -1
       &END PDOS
       &MO_CUBES
