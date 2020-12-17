@@ -1,8 +1,8 @@
 #!/bin/sh
-###SBATCH --partition=scavenger  --qos=scavenger
-###SBATCH --clusters=faculty
-#SBATCH --partition=debug  --qos=debug
-#SBATCH --clusters=ub-hpc
+#SBATCH --partition=scavenger  --qos=scavenger
+#SBATCH --clusters=faculty
+###SBATCH --partition=debug  --qos=debug
+###SBATCH --clusters=ub-hpc
 #SBATCH --constraint=CPU-Gold-6130
 #SBATCH --time=1:00:00
 #SBATCH --nodes=1
