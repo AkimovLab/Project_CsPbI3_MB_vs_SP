@@ -31,8 +31,8 @@ params["data_set_paths"].append(absolute_path+"/../step3/res_mb_sp/")
 params["Hvib_re_prefix"] = "Hvib_ci_"; params["Hvib_re_suffix"] = "_re"
 params["Hvib_im_prefix"] = "Hvib_ci_"; params["Hvib_im_suffix"] = "_im"
 params["nfiles"]         = 1800
-params["nstates"]        = 151 # total number of electronic states
-params["init_times"]     = [0]
+params["nstates"]        = 76 # total number of electronic states
+params["init_times"]     = [600]
 params["active_space"]   = list(range(params["nstates"])) # indexing is from 0!
 # Include HOMO and up to the last electronic state
 hvib_mb = step4.get_Hvib2(params)
@@ -49,9 +49,9 @@ params["data_set_paths"].append(absolute_path+"/../step3/res_mb_sp/")
 params["Hvib_re_prefix"] = "Hvib_sd_"; params["Hvib_re_suffix"] = "_re"
 params["Hvib_im_prefix"] = "Hvib_sd_"; params["Hvib_im_suffix"] = "_im"
 params["nfiles"]         = 1800
-params["nstates"]        = 229 # total number of electronic states
-params["init_times"]     = [0]
-params["active_space"]   = list(range(0,151))#params["nstates"])) # indexing is from 0!
+params["nstates"]        = 118 # total number of electronic states
+params["init_times"]     = [600]
+params["active_space"]   = list(range(0,76))#params["nstates"])) # indexing is from 0!
 # Include HOMO and up to the last electronic state
 hvib_mixed_sd = step4.get_Hvib2(params)
 hvib_mixed_sd[0][-1].show_matrix()
@@ -119,7 +119,7 @@ mixed_sd_dens = sum(dens_mixed_sd_ii)
 # Ploting below
 plt.figure(num=None, figsize=(3.21, 2.41), dpi=300, edgecolor='black', frameon=True)
 plt.subplot(1,1,1)
-plt.title('Cubic', fontsize=10) # traj'+str(subtraj)+'', fontsize=10)
+plt.title('Tetragonal', fontsize=10) # traj'+str(subtraj)+'', fontsize=10)
 plt.ylabel('DOS, 1/eV',  fontsize=10)
 plt.xlabel('Energy, eV', fontsize=10)
 plt.xlim(1,4)
