@@ -161,14 +161,14 @@ figure = plt.figure(num=None, figsize=(3.21, 2.41), dpi=1200, edgecolor='black',
 
 
 # Plot the total density by black color
-plt.plot(energy_grid_ave[0]-homos_ave,total_density*sigma,label='Total',color='black', linewidth=2.0)
+plt.plot(energy_grid_ave[0]-homos_ave,total_density,label='Total',color='black', linewidth=2.0)
 
 
 # set up a counter for labels
 c = 0
 for i in range(len(Total_results)):
     for j in range(1,len(Total_results[i])):
-        plt.plot(energy_grid_ave[0]-homos_ave,Total_results[i][j]*sigma,label=labels[c],color=colors[c], linewidth=2)
+        plt.plot(energy_grid_ave[0]-homos_ave,Total_results[i][j],label=labels[c],color=colors[c], linewidth=2)
         c += 1
 
 
