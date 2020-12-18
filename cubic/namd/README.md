@@ -6,6 +6,6 @@ The fit folder contains a script for fitting and plotting the dynamics computed 
 
 As always, 
 
-Be sure to test the first section in each `namd.py` script to make sure that the data is being read properly (are you actually reading in the matricies from step3?) 
+Be sure to test the first section in each `namd.py` script to make sure that the data is being read properly (are you actually reading in the matricies from step3?).
 
-For video tutorials on using this software, please see [this link](https://github.com/compchem-cybertraining/Tutorials_Libra/blob/master/VIDEOS.md)
+For video tutorials on using this software, please see [this link](https://github.com/compchem-cybertraining/Tutorials_Libra/blob/master/VIDEOS.md).
