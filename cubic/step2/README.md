@@ -1,6 +1,6 @@
 # Step2 - Compute the overlap matrices and energies in the Kohn-Sham basis and perform TD-DFT calculations along the precomputed nuclear trajectories
 
-Many of the details shown here are also shown / explained in https://github.com/AkimovLab/Project_Libra_CP2K/. This README.md however may contain updated informaiton in some sections. 
+Many of the details shown here are also shown / explained in [this link](https://github.com/AkimovLab/Project_Libra_CP2K/). This `README.md` however may contain updated informaiton in some sections. 
 
 ## 1. CP2K input for electronic structure calculations
 
@@ -8,9 +8,9 @@ Many of the details shown here are also shown / explained in https://github.com/
 
 This file is a template of a cp2k input file and is used to compute the electronic structure of the system along the precomputed nuclear trajectory. SCF calculations are called with the parameter `RUN_TYPE ENERGY`. 
 
-In the section FORCE_EVAL < PROPERTIES, is the input needed to compute TD-DFT calculations. If one wishes to compute only KS properties (overlaps, energies) one can delete this section. One would also need to set completion_level = 0 in the file submit_template.slm. One can set completion_level = 0 and also perform TDDFT calculations as well. In this case, the computation of the MB basis would be done in a post-process style. This is what we do here. 
+In the section `FORCE_EVAL < PROPERTIES`, is the input needed to compute TD-DFT calculations. If one wishes to compute only KS properties (overlaps, energies) one can delete this section. One would also need to set `completion_level = 0` in the file `submit_template.slm`. One can set `completion_level = 0` and also perform TDDFT calculations as well. In this case, the computation of the MB basis would be done in a post-process style. This is what we do here. 
 
-If the user needs to change the cp2k input, the changes should be done to this input file. One must make sure that the cube files can be produced via WRITE_CUBE .TRUE. 
+If the user needs to change the CP2K input, the changes should be done to this input file. One must make sure that the cube files can be produced via `WRITE_CUBE .TRUE.`. 
 
 Other required files for running the CP2K input file are basis set and pseudopotential files or any other files required to run the calculations, such as `dftd3.dat`. The full path to these files in the `cp2k_input_template.inp` file shoud be specified.
 
@@ -36,7 +36,7 @@ The standard sample bash file for submitting the calculations and running the Py
 
 `max_band`: The maximum KS orbital index to be considered.
 
---- We advise running a few preliminary TD-DFT calculations to get an idea of the range of KS orbtials you should expect. We also advise to request (via setting min_ and max_band to values to larger values than you expect you will need, to ensure that the space of KS transitions will be enough to make the MB basis. 
+--- We advise running a few preliminary TD-DFT calculations to get an idea of the range of KS orbtials you should expect. We also advise to request (via setting min_ and max_band to larger values than you expect you will need, to ensure that the space of KS transitions will be enough to make the MB basis. 
 
 `ks_orbital_homo_index`: The HOMO index for KS orbitals.
 
@@ -129,9 +129,11 @@ The required inputs in the `run.py` file are as follows:
 `os.system("sbatch submit_"+str(njob)+".slm")`: The jobs are submitted through this line of code at the end of the `run.py`. Please, change it according to your HPC submission platform. For example if you use `pbs` files and you use `qsub`, after preparing the `submit_template.pbs` the same as `submit_template.slm` you can change this line to `os.system("qsub submit_"+str(njob)+".pbs")`.
 
 **_Note_:** You can submit all your jobs by running only `python run.py` and the submission process of the jobs will be done on the local node. An alternative way for submitting the jobs is through submitting the `submit.slm` file which contains `python run.py`. This can be done if other nodes have the capability to perform the submission. Unless you have to use only `python run.py` on the local node or any other node that has the capability for submitting the jobs. Please also note that the current set up submits 800 jobs. To test the workflow it is advised to first set the following variables:
+```
 istep = 0
 fstep = 1
 njobs = 1
+```
 This way, the user can test the software for the first two steps to debug for potential errors in input, etc.  
 
 **_NOTE_:** - Please note that the paths currently defined in these files may not be the correct paths for you. Please adjust all paths to your specific needs
