@@ -36,7 +36,7 @@ The standard sample bash file for submitting the calculations and running the Py
 
 `max_band`: The maximum KS orbital index to be considered.
 
---- We advise running a few preliminary TD-DFT calculations to get an idea of the range of KS orbtials you should expect. We also advise to request (via setting min_ and max_band to larger values than you expect you will need, to ensure that the space of KS transitions will be enough to make the MB basis. 
+--- We advise running a few preliminary TD-DFT calculations to get an idea of the range of KS orbtials you should expect. We also advise to request (via setting `min_band` and `max_band` to larger values than you expect you will need, to ensure that the space of KS transitions will be enough to make the MB basis. 
 
 `ks_orbital_homo_index`: The HOMO index for KS orbitals.
 
